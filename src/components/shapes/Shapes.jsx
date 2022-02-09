@@ -6,73 +6,20 @@ import "./shapes.css";
  */
 //Initializes the nodes for the diagram
 
+
 //Initializes the connector for the diagram
-let connectors = [
-    {
-        id: "connector1",
-        sourceID: "NewIdea",
-        targetID: "Meeting"
-    },
-    { id: "connector2", sourceID: "Meeting", targetID: "BoardDecision" },
-    { id: "connector3", sourceID: "BoardDecision", targetID: "Project" },
-    {
-        id: "connector4",
-        sourceID: "Project",
-        annotations: [{ content: "Yes", style: { fill: "white" } }],
-        targetID: "End"
-    },
-    {
-        id: "connector5",
-        sourceID: "End",
-        annotations: [{ content: "Yes", style: { fill: "white" } }],
-        targetID: "transaction_completed"
-    },
-    {
-        id: "connector6",
-        sourceID: "transaction_completed",
-        targetID: "transaction_entered"
-    },
-    { id: "connector7", sourceID: "transaction_completed", targetID: "Data" },
-    { id: "connector8", sourceID: "transaction_completed", targetID: "node10" },
-    {
-        id: "connector9",
-        sourceID: "node11",
-        targetID: "Meeting",
-        segments: [{ direction: "Top", type: 'Orthogonal', length: 120 }]
-    },
-    {
-        id: "connector10",
-        sourceID: "End",
-        annotations: [{ content: "No", style: { fill: "white" } }],
-        targetID: "node11",
-        segments: [{ direction: "Right", type: 'Orthogonal', length: 100 }]
-    },
-    {
-        id: "connector11",
-        sourceID: "Project",
-        annotations: [{ content: "No", style: { fill: "white" } }],
-        targetID: "node11"
-    },
-    {
-        id: "connector12",
-        style: { strokeDashArray: "2,2" },
-        sourceID: "transaction_entered",
-        targetID: "node12"
-    }
-];
+
 //Initialize the flowshapes for the symbol palatte
 let flowshapes = [
-    { id: "Terminator", shape: { type: "Flow", shape: "Terminator" } },
     { id: "Process", shape: { type: "Flow", shape: "Process" } },
-    { id: "Decision", shape: { type: "Flow", shape: "Decision" } },
+    { id: "Terminator", shape: { type: "Flow", shape: "Terminator" } },
+    { id: "Merge", shape: { type: "Flow", shape: "Merge" } },
+    { id: "Квадрат", shape: { type: "Flow", shape: "Process" } },
     { id: "Document", shape: { type: "Flow", shape: "Document" } },
-    {
-        id: "PreDefinedProcess",
-        shape: { type: "Flow", shape: "PreDefinedProcess" }
-    },
-    { id: "PaperTap", shape: { type: "Flow", shape: "PaperTap" } },
+    { id: "ManualOperation", shape: { type: "Flow", shape: "ManualOperation" } },
+    { id: "Decision", shape: { type: "Flow", shape: "Decision" } },
     { id: "DirectData", shape: { type: "Flow", shape: "DirectData" } },
-    { id: "SequentialData", shape: { type: "Flow", shape: "SequentialData" } },
+    { id: "Data", shape: { type: "Flow", shape: "Data" } },
     { id: "Sort", shape: { type: "Flow", shape: "Sort" } },
     { id: "MultiDocument", shape: { type: "Flow", shape: "MultiDocument" } },
     { id: "Collate", shape: { type: "Flow", shape: "Collate" } },
@@ -80,8 +27,11 @@ let flowshapes = [
     { id: "Or", shape: { type: "Flow", shape: "Or" } },
     { id: "InternalStorage", shape: { type: "Flow", shape: "InternalStorage" } },
     { id: "Extract", shape: { type: "Flow", shape: "Extract" } },
-    { id: "ManualOperation", shape: { type: "Flow", shape: "ManualOperation" } },
-    { id: "Merge", shape: { type: "Flow", shape: "Merge" } },
+     {
+        id: "PreDefinedProcess",
+        shape: { type: "Flow", shape: "PreDefinedProcess" }
+    },
+    { id: "PaperTap", shape: { type: "Flow", shape: "PaperTap" } },
     {
         id: "OffPageReference",
         shape: { type: "Flow", shape: "OffPageReference" }
@@ -92,35 +42,19 @@ let flowshapes = [
     },
     { id: "Annotation", shape: { type: "Flow", shape: "Annotation" } },
     { id: "Annotation2", shape: { type: "Flow", shape: "Annotation2" } },
-    { id: "Data", shape: { type: "Flow", shape: "Data" } },
+    { id: "SequentialData", shape: { type: "Flow", shape: "SequentialData" } },
     { id: "Card", shape: { type: "Flow", shape: "Card" } },
     { id: "Delay", shape: { type: "Flow", shape: "Delay" } }
 ];
 //Initializes connector symbols for the symbol palette
 let connectorSymbols = [
     {
-        id: "Link1",
-        type: "Orthogonal",
-        sourcePoint: { x: 0, y: 0 },
-        targetPoint: { x: 60, y: 60 },
-        targetDecorator: { shape: "Arrow", style: { strokeColor: '#757575', fill: '#757575' } },
-        style: { strokeWidth: 1, strokeColor: '#757575' }
-    },
-    {
-        id: "link3",
-        type: "Orthogonal",
-        sourcePoint: { x: 0, y: 0 },
-        targetPoint: { x: 60, y: 60 },
-        style: { strokeWidth: 1, strokeColor: '#757575' },
-        targetDecorator: { shape: "None" },
-    },
-    {
-        id: "Link21",
+        id: "link2",
         type: "Straight",
         sourcePoint: { x: 0, y: 0 },
         targetPoint: { x: 60, y: 60 },
-        targetDecorator: { shape: "Arrow", style: { strokeColor: '#757575', fill: '#757575' } },
-        style: { strokeWidth: 1, strokeColor: '#757575' }
+        style: { strokeWidth: 1, strokeColor: '#757575', strokeDashArray: '2,2' },
+        targetDecorator: { shape: "None" }
     },
     {
         id: "link23",
@@ -131,12 +65,20 @@ let connectorSymbols = [
         targetDecorator: { shape: "None" }
     },
     {
-        id: "link33",
-        type: "Bezier",
+        id: "Link21",
+        type: "Straight",
         sourcePoint: { x: 0, y: 0 },
         targetPoint: { x: 60, y: 60 },
-        style: { strokeWidth: 1, strokeColor: '#757575' },
-        targetDecorator: { shape: "None" }
+        targetDecorator: { shape: "Arrow", style: { strokeColor: '#757575', fill: '#757575' } },
+        style: { strokeWidth: 1, strokeColor: '#757575', strokeDashArray: '2,2' }
+    },
+    {
+        id: "Link21",
+        type: "Straight",
+        sourcePoint: { x: 0, y: 0 },
+        targetPoint: { x: 60, y: 60 },
+        targetDecorator: { shape: "Arrow", style: { strokeColor: '#757575', fill: '#757575' } },
+        style: { strokeWidth: 1, strokeColor: '#757575' }
     }
 ];
 let interval;
@@ -171,9 +113,7 @@ const Shapes = () => {
         return (<div className="control-pane">
         <div className="control-section">
           <div style={{ width: "100%" }}>
-            <div className="sb-mobile-palette-bar">
-              <div id="palette-icon" style={{ float: "right", role: "button" }} className="e-ddb-icons1 e-toggle-palette"></div>
-            </div>
+
             <div id="palette-space" className="sb-mobile-palette">
               <SymbolPaletteComponent id="symbolpalette" expandMode="Multiple" palettes={[
             {
@@ -220,7 +160,7 @@ const Shapes = () => {
               <DiagramComponent id="diagram" ref={diagram => (diagramInstance = diagram)} width={"100%"} height={"700px"} snapSettings={{
             horizontalGridlines: gridlines,
             verticalGridlines: gridlines
-        }} nodes={nodes} connectors={connectors} //Sets the default values of a node
+        }}  //Sets the default values of a node
          getNodeDefaults={(node) => {
             let obj = {};
             if (obj.width === undefined) {
@@ -260,7 +200,7 @@ const Shapes = () => {
                 obj.height *= ratio;
                 obj.offsetX += (obj.width - oWidth) / 2;
                 obj.offsetY += (obj.height - oHeight) / 2;
-                obj.style = { fill: "#357BD2", strokeColor: "white" };
+                obj.style = { fill: "#FBEC5D", strokeColor: "white" };
             }
         }}/>
             </div>
