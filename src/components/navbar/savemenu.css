@@ -1,0 +1,46 @@
+.alert-auth-message {
+  background-color: white;
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  width: 40%;
+  padding: 40px;
+  border-radius: 5px;
+  border: 2px solid red;
+}
+
+.save-menu {
+  background-color: white;
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  width: 40%;
+  padding: 40px;
+  border-radius: 5px;
+  border: 2px solid green;
+}
+
+.close {
+  color: black;
+  float: right;
+}
+
+.close:hover {
+  color: red;
+  cursor: pointer;
+}
+
+.save-menu-buttons {
+  display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 2rem 8rem;
+
+}
+
+.yes-button:hover,
+.no-button:hover {
+  cursor: pointer;
+  color: red;
+}

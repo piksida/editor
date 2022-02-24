@@ -1,0 +1,114 @@
+.header {
+    border: 2px solid orange;
+}
+
+.gpt3__navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 2rem 6rem;
+}
+
+.gpt3__navbar-links {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.gpt3__navbar-links_container {
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar-newcard {
+    color: white;
+    text-align: center;
+
+
+}
+
+.file_menu,
+.edit_menu,
+.view_menu,
+.file-format {
+    display: none;
+    position: absolute;
+    background-colour: #f9f9f9;
+    min-width: 158px;
+    z-index: 1;
+}
+
+.file_menu button,
+.edit_menu button,
+.view_menu button,
+.file-format button {
+    color: "black";
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.export-button:hover .file-format {
+    display: flex;
+    margin-top: 2px;
+}
+
+.file-menu-space:hover .file_menu,
+.edit-menu-space:hover .edit_menu,
+.view-menu-space:hover .view_menu {
+    display: block;
+}
+
+.file-menu-space:hover .file-button {
+    background-color: transparent;
+}
+
+.file_menu button:hover,
+.edit_menu button:hover,
+.view_menu button:hover {
+    background-color: green;
+    color: #fff;
+}
+
+.file-format button:hover {
+    background-color: green;
+    color: #fff;
+}
+
+.gpt3__navbar-sign {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.gpt3__navbar-links_container p,
+.gpt3__navbar-sign p,
+.navbar-newcard p,
+.gpt3__navbar-menu_container p {
+    color: #fff;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    text-transform: capitalize;
+
+    margin: 0 1rem;
+    cursor: pointer;
+}
+
+.gpt3__navbar-sign button,
+.gpt3__navbar-menu_container button {
+    padding: 0.5rem 1rem;
+    color: #fff;
+    background: #FF4820;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
